@@ -25,7 +25,8 @@ Keys.addEventListener('click', (event) => {
     return;
   }
   if (target.classList.contains('dote')) {
-    console.log('dote', target.value);
+    inputDecimal(target.value);
+    updateDisplay();
     return;
   }
   if (target.classList.contains('clear')) {
