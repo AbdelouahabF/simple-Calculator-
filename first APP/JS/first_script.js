@@ -1,17 +1,47 @@
-//add number to ten
-var result = 0;
+const calculator = {
+  displayValue: '0', //represents the input or the result of an operation
+  leftoperand: null,
+  secundoperand: false,
+  operation: null, //the operator for an expression
+};
 
-for (var i = 0; i < 10; i++) {
-  result++;
-  console.log(result);
+function updatedisplay() {
+  const display = document.querySelector(".screen-Calculator");
+  display.value = calculator.displayValue;
+}
+updatedisplay();
+
+const Keys = document.querySelector('.keys');
+Keys.addEventListener('click', (event) => {
+  // body...
+  const {
+    target
+  } = event;
+  if (!target.matches('button')) {
+    return;
+  }
+  if (target.classList.contains('operator')) {
+    console.log('operator', target.value);
+    return;
+  }
+  if (target.classList.contains('dote')) {
+    console.log('dote', target.value);
+    return;
+  }
+  if (target.classList.contains('clear')) {
+    console.log('clear', target.value);
+    return;
+  }
+  inputDigit(target.value);
+  updatedisplay();
+
+});
+
+function inputDigit(digit) {
+  const {
+    displayValue
+  } = calculator;
+  calculator.displayValue = displayValue === '0' ? digit : displayValue + digit;
 
 }
-var addition = 0;
-addition = result + 10 * 8 - 9;
-console.log(addition);
-//how to use strings
-var test = "my name is abdelwahab \nand i'm new in english and this is  a backslashe \\";
-console.log(test);
-//second exp
-var newline = "A newline character is written like \"\\n\"  ";
-console.log(typeof newline);
+fjk
