@@ -59,10 +59,11 @@ function inputDigit(digit) {
     calculator.displayValue = displayValue === '0' ? digit : displayValue + digit;
   }
 
-  console.log(calculator);
+
 }
 
 function inputDot(dot) {
+  if (calculator.secundoperand === true) return;
   if (!calculator.displayValue.includes(dot)) {
     calculator.displayValue += dot;
   }
@@ -76,8 +77,7 @@ function Oparator(nextoparator) {
   } = calculator
   const inputValue = parseFloat(displayValue);
   if (operation && calculator.secundoperand) {
-    calculator.operation = nextoparator;
-    console.log(calculator);
+    calculator.operation = nextoparator;;
     return;
   }
   if (leftoperand == null) {
@@ -97,5 +97,5 @@ function clear() {
   calculator.leftoperand = null;
   calculator.secundoperand = false;
   calculator.operation = null;
-  console.log(calculator);
+
 }
