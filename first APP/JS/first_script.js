@@ -44,4 +44,9 @@ function inputDigit(digit) {
   calculator.displayValue = displayValue === '0' ? digit : displayValue + digit;
 
 }
-fjk
+
+function inputDot(dot) {
+  if (!calculator.displayValue.include(dot)) {
+    calculator.displayValue += dot;
+  }
+}
